@@ -24,4 +24,4 @@ creates a symfony skeleton project inside my-project, downloads dependencies and
 ```shell
 docker run --rm -it -v $PWD:/composer apokalipscke/php:latest-composer req apokalipscke/file-mimer
 ```
-Installs the dependency inside you current location.
+Installs the dependency inside your current location.

@@ -5,14 +5,16 @@
 
 **PHP Extensions**
 - xdebug (except :[version]-composer)
+- xsl (except :[version]-composer)
 - intl
 - pdo
 - pdo_mysql
 
 ## Tags
+### [version]-composer
 `7.4-composer`, `latest-composer`
 
-### Usage
+#### Usage
 **Creating a new project**
 ```shell
 docker run --rm -it -v $PWD:/composer apokalipscke/php:latest-composer create-project symfony/skeleton my-project
@@ -25,3 +27,37 @@ creates a symfony skeleton project inside my-project, downloads dependencies and
 docker run --rm -it -v $PWD:/composer apokalipscke/php:latest-composer req apokalipscke/file-mimer
 ```
 Installs the dependency inside your current location.
+
+### [version]-fpm
+`7.4-fpm`, `latest-fpm`, `latest`
+
+#### usage
+docker-compose.yml
+```yaml
+version: "3.8"
+
+services:
+  web:
+    image: nginx:1.19
+    container_name: my-project-web
+    ports:
+      - 80:80
+    volumes:
+      - ./web/my-project.dev.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/application
+      - ./web/logs:/var/log/nginx
+    networks:
+      - my-project-network
+
+  php:
+    image: apokalipscke/php:7.4-fpm
+    container_name: my-project-php
+    volumes:
+      - ./src:/var/www/application
+    networks:
+      - my-project-network
+
+networks:
+  my-project-network:
+    driver: bridge
+```

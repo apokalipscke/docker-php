@@ -12,7 +12,8 @@
 
 ## Tags
 ### [version]-composer
-`7.4-composer`, `latest-composer`
+- `8.0-composer`, `latest-composer`
+- `7.4-composer`
 
 #### Usage
 **Creating a new project**
@@ -29,7 +30,8 @@ docker run --rm -it -v $PWD:/composer apokalipscke/php:latest-composer req apoka
 Installs the dependency inside your current location.
 
 ### [version]-fpm
-`7.4-fpm`, `latest-fpm`, `latest`
+- `8.0-fpm`, `latest-fpm`, `latest`
+- `7.4-fpm`
 
 #### usage
 docker-compose.yml

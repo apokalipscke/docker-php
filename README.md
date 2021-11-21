@@ -2,6 +2,7 @@
 
 ## Contents
 - composer
+- git
 
 **PHP Extensions**
 - xdebug (except :[version]-composer)

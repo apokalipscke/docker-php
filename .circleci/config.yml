@@ -4,7 +4,7 @@ executors:
         environment:
             IMAGE_NAME: apokalipscke/php
         docker:
-            - image: circleci/buildpack-deps:stretch
+            - image: docker:20.10-git
 jobs:
     build:
         executor: docker-publisher
@@ -14,7 +14,7 @@ jobs:
             - run:
                   name: Build Docker image
                   command: |
-                      ./build
+                      docker build -t apokalipscke/php:7.4-composer composer/7.4/
             - run:
                   name: Archive Docker image
                   command: docker save -o image.tar $IMAGE_NAME

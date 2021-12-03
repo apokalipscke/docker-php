@@ -1,11 +1,11 @@
-FROM php:8.0-cli
+FROM php:8.0-cli-alpine
 
 MAINTAINER Marc Lipscke
 
 # install required software
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add \
    unzip \
-   libicu-dev \
+   icu-dev \
    git
 
 # install composer

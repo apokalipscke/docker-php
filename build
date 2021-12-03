@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 # composer
 # php 7.4
 docker build -t apokalipscke/php:7.4-composer composer/7.4/

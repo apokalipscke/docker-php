@@ -1,11 +1,11 @@
-FROM php:8.0-fpm
+FROM php:8.0-fpm-alpine
 
 MAINTAINER Marc Lipscke
 
 # install required software
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add $PHPIZE_DEPS \
    unzip \
-   libicu-dev \
+   icu-dev \
    libxslt-dev \
    git
 

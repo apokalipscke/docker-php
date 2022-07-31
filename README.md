@@ -13,7 +13,8 @@
 
 ## Tags
 ### [version]-composer
-- `8.0-composer`, `latest-composer`
+- `8.1-composer`, `latest-composer`
+- `8.0-composer`
 - `7.4-composer`
 
 #### Usage
@@ -31,7 +32,8 @@ docker run --rm -it -v $PWD:/composer apokalipscke/php:latest-composer req apoka
 Installs the dependency inside your current location.
 
 ### [version]-fpm
-- `8.0-fpm`, `latest-fpm`, `latest`
+- `8.1-fpm`, `latest-fpm`, `latest`
+- `8.0-fpm`
 - `7.4-fpm`
 
 #### usage

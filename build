@@ -3,12 +3,16 @@ set -e
 
 # composer
 # php 7.4
-docker build -t apokalipscke/php:7.4-composer composer/7.4/
+docker build -q -t apokalipscke/php:7.4-composer composer/7.4/
 # php 8.0
-docker build -t apokalipscke/php:8.0-composer -t apokalipscke/php:latest-composer composer/8.0/
+docker build -q -t apokalipscke/php:8.0-composer composer/8.0/
+# php 8.1
+docker build -q -t apokalipscke/php:8.1-composer -t apokalipscke/php:latest-composer composer/8.1/
 
 # fpm
 # 7.4
-docker build -t apokalipscke/php:7.4-fpm fpm/7.4/
+docker build -q -t apokalipscke/php:7.4-fpm fpm/7.4/
 # 8.0
-docker build -t apokalipscke/php:8.0-fpm -t apokalipscke/php:latest-fpm -t apokalipscke/php:latest fpm/8.0/
+docker build -q -t apokalipscke/php:8.0-fpm fpm/8.0/
+# 8.1
+docker build -q -t apokalipscke/php:8.1-fpm -t apokalipscke/php:latest-fpm -t apokalipscke/php:latest fpm/8.1/

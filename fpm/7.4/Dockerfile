@@ -3,7 +3,7 @@ FROM php:7.4-fpm-alpine
 MAINTAINER Marc Lipscke
 
 # install required software
-RUN apk update && apk add $PHPIZE_DEPS \
+RUN apk update && apk add autoconf g++ make \
    unzip \
    icu-dev \
    libxslt-dev \

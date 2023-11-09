@@ -1,22 +1,9 @@
 #!/bin/bash
 set -e
 
-# composer
-# php 7.4
-#docker build -q -t apokalipscke/php:7.4-composer composer/7.4/
-# php 8.0
-docker build -q -t apokalipscke/php:8.0-composer composer/8.0/
-# php 8.1
-docker build -q -t apokalipscke/php:8.1-composer composer/8.1/
-# php 8.2
-docker build -q -t apokalipscke/php:8.2-composer -t apokalipscke/php:latest-composer composer/8.2/
+versions=('8.0' '8.1' '8.2')
 
-# fpm
-# 7.4
-#docker build -q -t apokalipscke/php:7.4-fpm fpm/7.4/
-# 8.0
-docker build -q -t apokalipscke/php:8.0-fpm fpm/8.0/
-# 8.1
-docker build -q -t apokalipscke/php:8.1-fpm fpm/8.1/
-# 8.2
-docker build -q -t apokalipscke/php:8.2-fpm -t apokalipscke/php:latest-fpm -t apokalipscke/php:latest fpm/8.2/
+for v in ${versions[@]}; do
+  docker build --build-arg PHP_VERSION=${v} -t apokalipscke/php:${v}-composer -t apokalipscke/php:latest-composer composer/
+  docker build --build-arg PHP_VERSION=${v} -t apokalipscke/php:${v}-fpm -t apokalipscke/php:latest-fpm -t apokalipscke/php:latest fpm/
+done

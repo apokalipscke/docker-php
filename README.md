@@ -16,7 +16,6 @@
 - `8.2-composer`, `latest-composer`
 - `8.1-composer`
 - `8.0-composer`
-- `7.4-composer`
 
 #### Usage
 **Creating a new project**
@@ -36,7 +35,6 @@ Installs the dependency inside your current location.
 - `8.2-fpm`, `latest-fpm`, `latest`
 - `8.1-fpm`
 - `8.0-fpm`
-- `7.4-fpm`
 
 #### usage
 docker-compose.yml

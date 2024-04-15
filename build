@@ -1,9 +1,14 @@
 #!/bin/bash
 set -e
 
-versions=('8.0' '8.1' '8.2')
+versions=('8.0' '8.1' '8.2' '8.3')
+xdebug_versions=('3.2.2' '3.3.2' '3.3.2' '3.3.2')
 
-for v in ${versions[@]}; do
-  docker build --build-arg PHP_VERSION=${v} -t apokalipscke/php:${v}-composer -t apokalipscke/php:latest-composer composer/
-  docker build --build-arg PHP_VERSION=${v} -t apokalipscke/php:${v}-fpm -t apokalipscke/php:latest-fpm -t apokalipscke/php:latest fpm/
+for v in ${!versions[@]}; do
+  php_version=${versions[$v]}
+  xdebug_version=${xdebug_versions[$v]}
+  echo "Building PHP ${php_version} with Xdebug ${xdebug_version}"
+
+  docker build --build-arg PHP_VERSION=${php_version} -t apokalipscke/php:${php_version}-composer -t apokalipscke/php:latest-composer composer/
+  docker build --build-arg PHP_VERSION=${php_version} --build-arg XDEBUG_VERSION=${xdebug_version} -t apokalipscke/php:${php_version}-fpm -t apokalipscke/php:latest-fpm -t apokalipscke/php:latest fpm/
 done

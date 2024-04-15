@@ -1,7 +1,8 @@
 ARG PHP_VERSION
-ARG XDEBUG_VERSION
 
 FROM php:${PHP_VERSION}-fpm-alpine
+
+ARG XDEBUG_VERSION
 
 MAINTAINER Marc Lipscke
 
@@ -9,7 +10,7 @@ MAINTAINER Marc Lipscke
 RUN apk add --no-cache unzip git icu-dev libxslt-dev
 
 RUN apk update && apk add --no-cache --virtual .build-deps autoconf g++ make linux-headers \
-    && pecl install xdebug-${XDEBUG_VERSION:-'3.2.2'} \
+    && pecl install xdebug-${XDEBUG_VERSION} \
     && docker-php-ext-install pdo pdo_mysql intl xsl \
     && docker-php-ext-enable xdebug \
     && apk del .build-deps

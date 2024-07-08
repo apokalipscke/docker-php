@@ -1,0 +1,15 @@
+name: Build and Publish new Docker Images
+
+on: [push]
+#  push:
+#    branches:
+#      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Building Docker Images."
+      - run: docker --version
+      - name: Check out repository code
+        uses: actions/checkout@v4
